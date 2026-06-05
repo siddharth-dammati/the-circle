@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import PublicProfileClient from "./PublicProfileClient";
 import Link from "next/link";
 
-export default async function PublicProfilePage({ params }: { params: { id: string } }) {
+export default async function PublicProfilePage({ params }: { params: Promise<{ id: string }> }) {
   const session = await auth();
   if (!session?.user) redirect("/login");
 

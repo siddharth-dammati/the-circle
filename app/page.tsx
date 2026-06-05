@@ -93,7 +93,7 @@ function LandingHero() {
         <motion.div
           animate={{ y: [0, -20, 0], rotate: [0, -5, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          style={{ position: "absolute", top: "15%", left: "10%", background: "rgba(255,255,255,0.02)", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 24, padding: 24, width: 280, display: "none", md: { display: "block" } }}
+          style={{ position: "absolute", top: "15%", left: "10%", background: "rgba(255,255,255,0.02)", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 24, padding: 24, width: 280 }}
           className="hidden md:block"
         >
           <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 16 }}>

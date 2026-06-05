@@ -35,7 +35,7 @@ export default async function DiscoverPage() {
     .get();
 
   let profiles = profilesSnapshot.docs
-    .map(doc => ({ id: doc.id, ...doc.data() }))
+    .map(doc => ({ id: doc.id, ...(doc.data() as any) }))
     .filter(profile => !excludeIds.has(profile.id) && profile.isBanned !== true);
 
   // 3. Smart Matching Algorithm

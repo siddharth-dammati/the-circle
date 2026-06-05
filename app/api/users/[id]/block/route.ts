@@ -3,7 +3,7 @@ import { auth } from "@/lib/serverAuth";
 import { adminDb } from "@/lib/firebase-admin";
 import * as admin from "firebase-admin";
 
-export async function POST(req: Request, { params }: { params: { id: string } }) {
+export async function POST(req: Request, { params }: { params: Promise<{ id: string }> }) {
   const session = await auth();
   if (!session?.user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
