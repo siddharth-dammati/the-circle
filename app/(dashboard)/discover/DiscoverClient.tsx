@@ -6,7 +6,6 @@ import { Heart, X, Zap, GraduationCap, MapPin, RefreshCw, Info } from "lucide-re
 import Link from "next/link";
 
 const campusLabel: Record<string, string> = { HYDERABAD: "Hyderabad", BENGALURU: "Bengaluru", VIZAG: "Vizag" };
-const connectionLabel: Record<string, string> = { FRIENDS: "Friends", STUDY_PARTNER: "Study Partner", NETWORKING: "Networking", RELATIONSHIP: "Relationship" };
 const yearLabel: Record<number, string> = { 1: "1st Year", 2: "2nd Year", 3: "3rd Year", 4: "4th Year", 5: "5th Year" };
 
 interface Profile {
@@ -18,7 +17,7 @@ interface Profile {
   year: number | null;
   campus: string | null;
   interests: string[];
-  connectionType: string;
+  datingPreference: string;
   gender: string | null;
 }
 
@@ -102,9 +101,6 @@ function SwipeCard({
                   <Info size={20} color="rgba(255,255,255,0.7)" />
                 </h2>
               </Link>
-              <span style={{ fontSize: 12, fontWeight: 700, color: "#A855F7", background: "rgba(124,58,237,0.2)", padding: "4px 10px", borderRadius: 8, border: "1px solid rgba(124,58,237,0.3)" }}>
-                {connectionLabel[profile.connectionType] ?? profile.connectionType}
-              </span>
             </div>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               {profile.branch && (

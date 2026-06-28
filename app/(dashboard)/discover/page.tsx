@@ -40,13 +40,19 @@ export default async function DiscoverPage() {
 
   // 3. Smart Matching Algorithm
   if (currentUser) {
-    // Filter opposite gender if looking for a relationship
-    if (currentUser.connectionType === "RELATIONSHIP" && currentUser.gender) {
+    // Filter based on dating preference
+    if (currentUser.datingPreference && currentUser.gender) {
       profiles = profiles.filter(profile => {
-        if (profile.connectionType !== "RELATIONSHIP") return false;
         if (!profile.gender || profile.gender === "PREFER_NOT_TO_SAY" || profile.gender === "OTHER") return false;
-        if (currentUser.gender === "MALE" && profile.gender !== "FEMALE") return false;
-        if (currentUser.gender === "FEMALE" && profile.gender !== "MALE") return false;
+        
+        // Match current user's preference with profile's gender
+        if (currentUser.datingPreference === "MEN" && profile.gender !== "MALE") return false;
+        if (currentUser.datingPreference === "WOMEN" && profile.gender !== "FEMALE") return false;
+
+        // Match profile's preference with current user's gender
+        if (profile.datingPreference === "MEN" && currentUser.gender !== "MALE") return false;
+        if (profile.datingPreference === "WOMEN" && currentUser.gender !== "FEMALE") return false;
+
         return true;
       });
     }
@@ -56,7 +62,6 @@ export default async function DiscoverPage() {
       
       if (profile.campus === currentUser.campus) score += 30;
       if (profile.branch === currentUser.branch) score += 20;
-      if (profile.connectionType === currentUser.connectionType) score += 15;
       if (profile.year === currentUser.year) score += 10;
       
       const sharedInterests = (profile.interests || []).filter((i: string) => (currentUser.interests || []).includes(i));

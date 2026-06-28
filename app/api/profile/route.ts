@@ -10,7 +10,7 @@ const updateSchema = z.object({
   year: z.number().min(1).max(6).optional(),
   campus: z.enum(["HYDERABAD", "BENGALURU", "VIZAG"]).optional(),
   interests: z.array(z.string()).max(10).optional(),
-  connectionType: z.enum(["FRIENDS", "STUDY_PARTNER", "NETWORKING", "RELATIONSHIP"]).optional(),
+  datingPreference: z.enum(["MEN", "WOMEN", "EVERYONE"]).optional(),
   instagramUrl: z.string().url().optional().or(z.literal("")),
   linkedinUrl: z.string().url().optional().or(z.literal("")),
   image: z.string().url().optional(),

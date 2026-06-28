@@ -30,7 +30,7 @@ export default function OnboardingPage() {
     gender: "",
     bio: "",
     interests: [] as string[],
-    connectionType: "FRIENDS",
+    datingPreference: "EVERYONE",
     image: "",
     instagramUrl: "",
     linkedinUrl: "",
@@ -40,7 +40,7 @@ export default function OnboardingPage() {
     { title: "Your Academic Info", subtitle: "Tell us about your studies" },
     { title: "Your Profile Picture", subtitle: "Add a photo so people know it's you" },
     { title: "Your Interests", subtitle: "Select up to 10 things you love" },
-    { title: "Your Vibe", subtitle: "What are you looking for?" },
+    { title: "Dating Preferences", subtitle: "Who are you interested in meeting?" },
     { title: "Your Socials", subtitle: "Drop your links (Optional)" },
   ];
 
@@ -361,31 +361,30 @@ export default function OnboardingPage() {
 
             {step === 3 && (
               <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-                <p style={{ color: "#94A3B8", fontSize: 14, marginBottom: 8 }}>What are you primarily looking for on The Circle?</p>
+                <p style={{ color: "#94A3B8", fontSize: 14, marginBottom: 8 }}>Who do you want to match with?</p>
                 {[
-                  { value: "FRIENDS", label: "🤝 Friends", desc: "Meet cool people from your campus" },
-                  { value: "STUDY_PARTNER", label: "📚 Study Partner", desc: "Find someone to study and collaborate with" },
-                  { value: "NETWORKING", label: "🚀 Networking", desc: "Build your professional campus network" },
-                  { value: "RELATIONSHIP", label: "❤️ Relationship", desc: "Find a meaningful romantic connection" },
+                  { value: "MEN", label: "Men", desc: "Show me men" },
+                  { value: "WOMEN", label: "Women", desc: "Show me women" },
+                  { value: "EVERYONE", label: "Everyone", desc: "Show me everyone" },
                 ].map((opt) => (
                   <motion.button
                     key={opt.value}
                     type="button"
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
-                    onClick={() => setForm({ ...form, connectionType: opt.value })}
+                    onClick={() => setForm({ ...form, datingPreference: opt.value })}
                     style={{
                       padding: "16px 20px",
                       borderRadius: 14,
-                      border: `1px solid ${form.connectionType === opt.value ? "#EC4899" : "rgba(255,255,255,0.08)"}`,
-                      background: form.connectionType === opt.value ? "rgba(236,72,153,0.1)" : "rgba(255,255,255,0.03)",
+                      border: `1px solid ${form.datingPreference === opt.value ? "#EC4899" : "rgba(255,255,255,0.08)"}`,
+                      background: form.datingPreference === opt.value ? "rgba(236,72,153,0.1)" : "rgba(255,255,255,0.03)",
                       textAlign: "left",
                       cursor: "pointer",
                       transition: "all 0.2s",
                       fontFamily: "Inter, sans-serif",
                     }}
                   >
-                    <div style={{ fontSize: 15, fontWeight: 700, color: form.connectionType === opt.value ? "#EC4899" : "#F8FAFC", marginBottom: 4 }}>{opt.label}</div>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: form.datingPreference === opt.value ? "#EC4899" : "#F8FAFC", marginBottom: 4 }}>{opt.label}</div>
                     <div style={{ fontSize: 13, color: "#64748B" }}>{opt.desc}</div>
                   </motion.button>
                 ))}

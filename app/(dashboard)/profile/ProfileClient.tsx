@@ -9,7 +9,6 @@ import { BRANCHES, INTERESTS, CAMPUSES } from "@/lib/utils";
 import { auth } from "@/lib/firebase";
 import toast from "react-hot-toast";
 
-const connectionLabel: Record<string, string> = { FRIENDS: "👥 Friends", STUDY_PARTNER: "📚 Study Partner", NETWORKING: "🚀 Networking", RELATIONSHIP: "❤️ Relationship" };
 const campusLabel: Record<string, string> = { HYDERABAD: "Hyderabad", BENGALURU: "Bengaluru", VIZAG: "Vizag" };
 const yearLabel: Record<number, string> = { 1: "1st Year", 2: "2nd Year", 3: "3rd Year", 4: "4th Year", 5: "5th Year" };
 
@@ -50,7 +49,7 @@ export default function ProfileClient({ user }: { user: any }) {
     year: user.year ?? 1,
     campus: user.campus ?? "",
     interests: user.interests ?? [],
-    connectionType: user.connectionType ?? "FRIENDS",
+    datingPreference: user.datingPreference ?? "EVERYONE",
     instagramUrl: user.instagramUrl ?? "",
     linkedinUrl: user.linkedinUrl ?? "",
     image: user.image ?? "",
@@ -304,9 +303,9 @@ export default function ProfileClient({ user }: { user: any }) {
                 <MapPin size={16} color="#EC4899" /> {campusLabel[user.campus] ?? user.campus}
               </span>
             )}
-            {user.connectionType && (
+            {user.datingPreference && (
               <span style={{ fontSize: 13, fontWeight: 700, color: "#EC4899", background: "rgba(236,72,153,0.1)", padding: "3px 10px", borderRadius: 8 }}>
-                {connectionLabel[user.connectionType]}
+                Looking for {user.datingPreference.toLowerCase()}
               </span>
             )}
           </div>
@@ -393,11 +392,21 @@ export default function ProfileClient({ user }: { user: any }) {
                 </select>
               </div>
             </div>
-            <div>
-              <label style={{ color: "#94A3B8", fontSize: 13, fontWeight: 600, display: "block", marginBottom: 8 }}>Branch</label>
-              <select value={form.branch} onChange={(e) => setForm({ ...form, branch: e.target.value })} style={inputStyle}>
-                {BRANCHES.map((b) => <option key={b} value={b} style={{ background: "#1E293B" }}>{b}</option>)}
-              </select>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+              <div>
+                <label style={{ color: "#94A3B8", fontSize: 13, fontWeight: 600, display: "block", marginBottom: 8 }}>Branch</label>
+                <select value={form.branch} onChange={(e) => setForm({ ...form, branch: e.target.value })} style={inputStyle}>
+                  {BRANCHES.map((b) => <option key={b} value={b} style={{ background: "#1E293B" }}>{b}</option>)}
+                </select>
+              </div>
+              <div>
+                <label style={{ color: "#94A3B8", fontSize: 13, fontWeight: 600, display: "block", marginBottom: 8 }}>Looking for</label>
+                <select value={form.datingPreference} onChange={(e) => setForm({ ...form, datingPreference: e.target.value })} style={inputStyle}>
+                  <option value="MEN" style={{ background: "#1E293B" }}>Men</option>
+                  <option value="WOMEN" style={{ background: "#1E293B" }}>Women</option>
+                  <option value="EVERYONE" style={{ background: "#1E293B" }}>Everyone</option>
+                </select>
+              </div>
             </div>
             <div>
               <label style={{ color: "#94A3B8", fontSize: 13, fontWeight: 600, display: "block", marginBottom: 8 }}>Interests ({form.interests.length}/10)</label>

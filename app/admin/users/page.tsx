@@ -37,7 +37,7 @@ export default async function AdminUsersPage() {
       isBanned: data.isBanned,
       isAdmin: data.isAdmin,
       createdAt: data.createdAt?.toDate ? data.createdAt.toDate() : new Date(data.createdAt || Date.now()),
-      connectionType: data.connectionType,
+      datingPreference: data.datingPreference,
       _count: {
         matchesA: matchCountsA[doc.id] || 0,
         matchesB: matchCountsB[doc.id] || 0,

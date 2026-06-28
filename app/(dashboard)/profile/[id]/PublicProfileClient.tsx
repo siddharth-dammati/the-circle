@@ -157,7 +157,7 @@ export default function PublicProfileClient({ user, currentUserId, matchId }: Pr
               </div>
               <div style={{ background: "rgba(255,255,255,0.02)", borderRadius: 16, padding: "16px 20px", border: "1px solid rgba(255,255,255,0.03)" }}>
                 <div style={{ fontSize: 12, color: "#64748B", fontWeight: 600, marginBottom: 4, textTransform: "uppercase", letterSpacing: "1px" }}>Looking For</div>
-                <div style={{ fontSize: 15, fontWeight: 700, color: "white" }}>{user.connectionType ? user.connectionType.replace("_", " ") : "Friends"}</div>
+                <div style={{ fontSize: 15, fontWeight: 700, color: "white" }}>{user.datingPreference ? user.datingPreference.toLowerCase() : "everyone"}</div>
               </div>
             </div>
           </motion.div>

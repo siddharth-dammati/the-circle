@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { auth } from "@/lib/firebase";
 import {
   LayoutDashboard, Compass, Heart, MessageCircle,
-  Calendar, User, Settings, LogOut, ShieldCheck, Shield
+  User, Settings, LogOut, ShieldCheck, Shield
 } from "lucide-react";
 
 const navItems = [
@@ -14,7 +14,6 @@ const navItems = [
   { href: "/discover", icon: Compass, label: "Discover" },
   { href: "/matches", icon: Heart, label: "Matches" },
   { href: "/chat", icon: MessageCircle, label: "Chat" },
-  { href: "/events", icon: Calendar, label: "Events" },
   { href: "/profile", icon: User, label: "Profile" },
 ];
 

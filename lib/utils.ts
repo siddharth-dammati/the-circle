@@ -58,6 +58,4 @@ export const INTERESTS = [
 
 export const CAMPUSES = [
   { value: "HYDERABAD", label: "Hyderabad" },
-  { value: "BENGALURU", label: "Bengaluru" },
-  { value: "VIZAG", label: "Vizag" },
 ];

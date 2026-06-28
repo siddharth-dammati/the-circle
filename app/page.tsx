@@ -154,7 +154,7 @@ function LandingHero() {
           }}
         >
           <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#22C55E", boxShadow: "0 0 10px #22C55E" }} />
-          The Exclusive Campus Network
+          Hyderabad Campus Exclusive
         </motion.div>
 
         <motion.h1
@@ -172,8 +172,8 @@ function LandingHero() {
             maxWidth: 1000
           }}
         >
-          Love, but <br />
-          <span style={{ background: "linear-gradient(90deg, #22C55E, #EC4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>verified.</span>
+          Matches drop <br />
+          <span style={{ background: "linear-gradient(90deg, #22C55E, #EC4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Aug 28th.</span>
         </motion.h1>
 
         <motion.p
@@ -182,7 +182,7 @@ function LandingHero() {
           transition={{ duration: 1, delay: 0.4 }}
           style={{ fontSize: "clamp(18px, 2.5vw, 24px)", color: "#A1A1AA", maxWidth: 600, textAlign: "center", lineHeight: 1.6, marginBottom: 48 }}
         >
-          Step into GITAM's most exclusive circle. A highly curated community designed for meaningful interactions. No noise. Just the people who matter.
+          Register now and build your profile. The ultimate matching engine for Fresher's Day is coming exclusively to the Hyderabad Campus. Find your people, before you even step on campus.
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.6 }} style={{ display: "flex", gap: 16, pointerEvents: "auto" }}>
@@ -204,7 +204,7 @@ function LandingHero() {
               onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.05)" }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)" }}
             >
-              Start Connecting
+              Join the Waitlist
             </Link>
           </MagnetButton>
         </motion.div>
