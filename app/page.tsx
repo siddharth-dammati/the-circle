@@ -162,12 +162,19 @@ const GLOBAL_CSS = `
 
 // ─── STAR FIELD ───────────────────────────────────────────────────────────────
 function StarField() {
-  const stars = Array.from({ length: 60 }, (_, i) => ({
-    id: i, x: Math.random() * 100, y: Math.random() * 100,
-    size: Math.random() * 2 + 0.5,
-    duration: (Math.random() * 4 + 2).toFixed(1),
-    delay: (Math.random() * 5).toFixed(1),
-  }));
+  const [stars, setStars] = useState<any[]>([]);
+
+  useEffect(() => {
+    setStars(Array.from({ length: 60 }, (_, i) => ({
+      id: i, x: Math.random() * 100, y: Math.random() * 100,
+      size: Math.random() * 2 + 0.5,
+      duration: (Math.random() * 4 + 2).toFixed(1),
+      delay: (Math.random() * 5).toFixed(1),
+    })));
+  }, []);
+
+  if (stars.length === 0) return null;
+
   return (
     <div className="star-field" style={{ pointerEvents: "none", zIndex: 1 }}>
       {stars.map(s => (
