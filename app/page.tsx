@@ -401,9 +401,9 @@ function HowItWorks() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, delay: i * 0.08 }}
             >
-              {/* Connector line */}
-              {i < steps.length - 1 && (
-                <div style={{ width: 1, height: 60, background: `linear-gradient(to bottom, ${step.color}30, transparent)`, marginLeft: 39, marginBottom: 0 }} />
+              {/* Connector line from previous step */}
+              {i > 0 && (
+                <div style={{ width: 1, height: 60, background: `linear-gradient(to bottom, transparent, ${step.color}30)`, marginLeft: 39, marginBottom: 0 }} />
               )}
               <div style={{
                 display: "grid", gridTemplateColumns: "80px 1fr", gap: 40, alignItems: "flex-start",
